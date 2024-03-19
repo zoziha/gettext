@@ -1,7 +1,7 @@
 program xgettext
 
     use gettext_sll_node, only: keyvalue_type
-    use gettext_constants, only: stack_size
+    use gettext_constants, only: stack_size, NUL
 
     type(keyvalue_type) :: items(stack_size)
     integer :: maxcount
@@ -47,7 +47,7 @@ contains
 
         open (newunit=unit, file=file, status='replace', action='write', form="unformatted", access="stream")
         do j = 1, maxcount
-            write (unit) items(j)%key, items(j)%value
+            write (unit) items(j)%key, NUL, items(j)%value, NUL
         end do
         close (unit)
 

@@ -17,10 +17,11 @@ contains
         character(*), intent(in) :: file
         integer :: unit, stat
         type(keyvalue_type) :: item
+        character(2) :: c
 
         open (newunit=unit, file=file, status='old', action='read', form="unformatted", access="stream")
         do
-            read (unit, iostat=stat) item%key, item%value
+            read (unit, iostat=stat) item%key, c(1:1), item%value, c(2:2)
             if (stat < 0) exit
             call push_back(table%buckets(modulo(adler32(item%key), 65535)), item)
         end do
