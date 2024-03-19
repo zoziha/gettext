@@ -13,3 +13,4 @@ subdir('src')
 gettext_lib = library('gettext', gettext_src)
 
 example_read = executable('example_read', 'example/example_read.f90', link_with: gettext_lib)
+xgettext = executable('xgettext', 'example/xgettext.f90', link_with: gettext_lib)

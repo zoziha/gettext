@@ -18,12 +18,13 @@ contains
         integer :: unit, stat
         type(keyvalue_type) :: item
 
-        open (newunit=unit, file=file, status='old', action='read')
+        open (newunit=unit, file=file, status='old', action='read', form="unformatted", access="stream")
         do
-            read (unit, '(2a100)', iostat=stat) item%key, item%value
+            read (unit, iostat=stat) item%key, item%value
             if (stat < 0) exit
             call push_back(table%buckets(modulo(adler32(item%key), 65535)), item)
         end do
+        close (unit)
 
     end subroutine read_table
 

@@ -4,7 +4,7 @@ program example_read
 
     type(table_type) :: tbl
 
-    call read_table(tbl, './example/1.txt')
+    call read_table(tbl, 'zh_CN.mo')
     print *, gettext&
 &(tbl, "XYZ                                                                                                 ")
     print *, "你好"
