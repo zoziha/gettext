@@ -1,6 +1,6 @@
 name = "gettext"
 version = "0.1.0"
-license = "license"
+license = "MIT"
 author = "ZUO Zhihua"
 maintainer = "zuo.zhihua@qq.com"
 copyright = "Copyright 2024, ZUO Zhihua"

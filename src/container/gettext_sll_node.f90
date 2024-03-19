@@ -1,8 +1,8 @@
 module gettext_sll_node
 
     type keyvalue_type
-        character(len=100) :: key
-        character(len=100) :: value
+        character(:), allocatable :: key
+        character(:), allocatable :: value
     end type keyvalue_type
 
     type node_type
@@ -16,7 +16,8 @@ contains
         type(keyvalue_type), intent(in) :: item
         type(node_type) :: init_node
 
-        init_node%item = item
+        init_node%item%key = item%key
+        init_node%item%value = item%value
 
     end function init_node
 

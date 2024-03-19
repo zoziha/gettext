@@ -11,8 +11,8 @@ contains
 
     function gettext(table, key)
         type(table_type), intent(inout) :: table
-        character(100), intent(in) :: key
-        character(100) :: gettext
+        character(*), intent(in) :: key
+        character(:), allocatable :: gettext
         type(keyvalue_type), pointer :: item
         logical :: found
 

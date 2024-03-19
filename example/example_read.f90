@@ -5,8 +5,6 @@ program example_read
     type(table_type) :: tbl
 
     call read_table(tbl, 'zh_CN.mo')
-    print *, gettext&
-&(tbl, "XYZ                                                                                                 ")
-    print *, "你好"
+    print "(2A)", "`Hello World!`的中文翻译：", gettext(tbl, "Hello World!")
 
 end program example_read

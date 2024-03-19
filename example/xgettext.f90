@@ -20,6 +20,7 @@ contains
         type(keyvalue_type) :: item
         character(2) :: c
 
+        allocate (character(256) :: item%key, item%value)
         maxcount = 0; j = 1
         open (newunit=unit, file=file, status='old', action='read')
         do
@@ -47,7 +48,7 @@ contains
 
         open (newunit=unit, file=file, status='replace', action='write', form="unformatted", access="stream")
         do j = 1, maxcount
-            write (unit) items(j)%key, NUL, items(j)%value, NUL
+            write (unit) trim(items(j)%key), NUL, trim(items(j)%value), NUL
         end do
         close (unit)
 
