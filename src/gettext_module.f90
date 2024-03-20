@@ -4,6 +4,8 @@ module gettext_module
     use gettext_sll, only: sll_type, keyvalue_type
     use gettext_sll_iterator, only: init_sll_iterator, sll_iterator_type, next_sll_iterator
     use gettext_hash, only: adler32
+    use gettext_constants, only: stack_size
+    implicit none
 
     private :: adler32
 
@@ -22,7 +24,7 @@ contains
         end if
 
         found = .false.
-        table%iter = init_sll_iterator(table%buckets(modulo(adler32(key), 65535)))
+        table%iter = init_sll_iterator(table%buckets(modulo(adler32(key), stack_size)))
         do while (next_sll_iterator(table%iter, item))
             if (item%key == key) then
                 gettext = item%value

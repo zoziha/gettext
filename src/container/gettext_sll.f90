@@ -12,7 +12,7 @@ module gettext_sll
 
 contains
 
-    subroutine push_back(sll, item)
+    pure subroutine push_back(sll, item)
         type(sll_type), intent(inout) :: sll
         type(keyvalue_type), intent(in) :: item
 

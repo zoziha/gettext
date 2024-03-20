@@ -12,7 +12,7 @@ module gettext_sll_node
 
 contains
 
-    function init_node(item)
+    pure function init_node(item)
         type(keyvalue_type), intent(in) :: item
         type(node_type) :: init_node
 
