@@ -11,7 +11,7 @@ module user_gettext
 contains
 
     subroutine locale()
-        call read_table(tbl, 'zh_CN.mo')
+        call read_table(tbl)
     end subroutine locale
 
     function gettext(key)

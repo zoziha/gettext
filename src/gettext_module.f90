@@ -16,6 +16,11 @@ contains
         type(keyvalue_type), pointer :: item
         logical :: found
 
+        if (table%LANG == "C") then
+            gettext = key
+            return
+        end if
+
         found = .false.
         table%iter = init_sll_iterator(table%buckets(modulo(adler32(key), 65535)))
         do while (next_sll_iterator(table%iter, item))

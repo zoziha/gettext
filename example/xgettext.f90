@@ -1,13 +1,17 @@
+!> 暂只支持一种语言翻译
 program xgettext
 
     use gettext_sll_node, only: keyvalue_type
     use gettext_constants, only: stack_size, NUL
+    use gettext_utils, only: LANG
 
     type(keyvalue_type) :: items(stack_size)
     integer :: maxcount
+    character(:), allocatable :: locale
 
-    call read_file(items, 'zh_CN.po', maxcount)
-    call write_file(items, 'zh_CN.mo', maxcount)
+    locale = LANG()
+    call read_file(items, locale//'.po', maxcount)
+    call write_file(items, locale//'.mo', maxcount)
     print "(A,i0,A)", "Processed ", maxcount, " message(s)."
 
 contains

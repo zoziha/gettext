@@ -1,7 +1,5 @@
 # gettext
 
-My cool new project!
-
 非英文母语国家需要一个支持国际化翻译的 Fortran 库。本库提供了 xgettext 和 gettext 两个接口：
 * xgettext负责提取字符串，生成.mo二进制文件。
 * libgettext负责解析二进制文件，在运行时翻译。
@@ -12,10 +10,6 @@ My cool new project!
 fpm run --example xgettext
 fpm run --example example_read
 ```
-
-## TODO
-
-* 识别环境变量 LANG。
 
 ## 存在的问题
 
