@@ -15,8 +15,6 @@ fpm run --example example_read
 
 ## TODO
 
-* 保留字符串后面的空格符号，需要使用其它符号标记。
-* 隐藏哈希表细节。
 * 识别环境变量 LANG。
 
 ## 存在的问题
