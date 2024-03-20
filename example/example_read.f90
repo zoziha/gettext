@@ -29,6 +29,7 @@ program example_read
     use user_gettext, only: gettext, locale, operator(.t.)
 
     call locale()
+    print "(2A)", "中文翻译：", gettext("Welcome to time domain full nonlinear potential flow theory software")    ! 无句尾空格
     print "(2A)", "`Hello World!`的中文翻译：", gettext("Hello World!")    ! 无句尾空格
     print "(2A)", "`Hello World! `的中文翻译：", gettext("Hello World! ")  ! 有句尾空格
     print "(2A)", "`Hello World! `的中文翻译：", .t."Hello World! "        ! 有句尾空格
